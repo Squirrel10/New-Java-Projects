@@ -5,14 +5,10 @@ public class Reservation {
   boolean isConfirmed;
   
   public Reservation(int count, int capacity, boolean open) {
-    // Write conditional statement below
-    
-    if (count < 1 || count > 8 ) {
+    if (count < 1 || count > 8) {
       System.out.println("Invalid reservation!");
+
     }
-    
-
-
     guestCount = count;
 		restaurantCapacity = capacity;
 		isRestaurantOpen = open;
@@ -29,11 +25,16 @@ public class Reservation {
   }
   
   public void informUser() {
-    System.out.println("Please enjoy your meal!");
+    // Write conditional here
+      if (!isConfirmed) {
+      System.out.println("Unable to confirm reservation, please contact restaurant.");
+      } else {
+        System.out.println("Please enjoy your meal!");
+      }
   }
   
   public static void main(String[] args) {
-    Reservation partyOfThree = new Reservation(12, 12, true);
+    Reservation partyOfThree = new Reservation(3, 12, true);
     Reservation partyOfFour = new Reservation(4, 3, true);
     partyOfThree.confirmReservation();
     partyOfThree.informUser();
